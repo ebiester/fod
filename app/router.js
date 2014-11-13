@@ -7,7 +7,7 @@ var Router = Ember.Router.extend({
 
 Router.map(function() {
   this.resource('vehicle', {path: '/vehicle/:vehicle_id'});
-  this.route('checklist');
+  this.resource('checklist', {path: '/checklist/:vehicle_id'});
 });
 
 export default Router;
