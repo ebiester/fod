@@ -1,4 +1,3 @@
-<label for="license">
-  License Plate
-</label>
-{{license-plate autofocus=true value=license action="searchLicense"}}
+<form role="form" {{action "searchLicense" on="submit"}}>
+    {{license-plate license=license}}
+</form>
