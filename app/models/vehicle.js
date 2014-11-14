@@ -9,6 +9,7 @@ var Vehicle = DS.Model.extend({
   color: DS.attr(),
   isReady: DS.attr('boolean'),
   checklist: DS.belongsTo('Checklist', {async: true}),
+  filename: DS.attr(),
 
   current_fleet: function() {
     return this.get("isReady") ? "Zipcar" : "Avis";
