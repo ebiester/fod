@@ -9,3 +9,7 @@ html, body {
 body > div > .container {
   margin-top: 40px;
 }
+
+.badge {
+    font-size: 1.1em;
+}
