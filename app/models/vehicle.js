@@ -8,7 +8,11 @@ var Vehicle = DS.Model.extend({
   vehicle_model: DS.attr(),
   color: DS.attr(),
   isReady: DS.attr('boolean'),
-  checklist: DS.belongsTo('Checklist', {async: true})
+  checklist: DS.belongsTo('Checklist', {async: true}),
+
+  current_fleet: function() {
+    return this.get("isReady") ? "Avis" : "Zipcar"
+  }.property('isReady')
 });
 
 Vehicle.reopenClass({
