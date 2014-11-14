@@ -10,13 +10,20 @@ var Checklist = DS.Model.extend({
   gas_checked_by: DS.belongsTo('user'),
   upkitted: DS.attr('boolean'),
   upkitted_by: DS.belongsTo('user'),
+  parked_on_the_line: DS.attr('boolean'),
+  parked_on_the_line_by: DS.belongsTo('user'),
 
-  // readyToToggle: {
-  //   return damage_checked &&
-  //       cleaned &&
-  //       gas_checked &&
-  //       upkitted;
-  // }
+  readyToToggle: function() {
+    return this.get('damage_checked') &&
+        this.get('cleaned') &&
+        this.get('gas_checked') &&
+        this.get('upkitted') &&
+        this.get('parked_on_the_line');
+  }.property('damage_checked',
+    'cleaned',
+    'gas_checked',
+    'upkitted',
+    'parked_on_the_line')
 });
 
 Checklist.reopenClass({

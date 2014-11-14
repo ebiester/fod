@@ -9,6 +9,13 @@
             checked=checklist.gas_checked}} Full gas</li>
 <li>{{input type="checkbox"
             checked=checklist.upkitted}} Upkitted</li>
+            <li>{{input type="checkbox"
+            checked=checklist.parked_on_the_line}} Parked On The Line</li>
+
 </ul>
+
+{{#if checklist.readyToToggle}}
+  <button class="btn btn-lg btn-primary">Toggle Vehicle</button>
+{{/if}}
 {{outlet}}
 
