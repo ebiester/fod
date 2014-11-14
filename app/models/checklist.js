@@ -13,12 +13,14 @@ var Checklist = DS.Model.extend({
   parked_on_the_line: DS.attr('boolean'),
   parked_on_the_line_by: DS.belongsTo('user'),
 
-  readyToToggle: function() {
-    return this.get('damage_checked') &&
+  notReadyToToggle: function() {
+    var readyToToggle = this.get('damage_checked') &&
         this.get('cleaned') &&
         this.get('gas_checked') &&
         this.get('upkitted') &&
         this.get('parked_on_the_line');
+
+    return !readyToToggle;
   }.property('damage_checked',
     'cleaned',
     'gas_checked',

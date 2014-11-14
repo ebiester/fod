@@ -16,8 +16,6 @@ trip. Please check off all items as they are completed. Thanks!</h4>
 
 </ul>
 
-{{#if checklist.readyToToggle}}
-  <button class="btn btn-lg btn-primary btn-block" {{action sendToZipcar}}>Send Vehicle to Zipcar Fleet</button>
-{{/if}}
+<button {{bind-attr disabled=checklist.notReadyToToggle}} class="btn btn-lg btn-primary btn-block" {{action sendToZipcar}}>Send Vehicle to Zipcar Fleet</button>
 {{outlet}}
 
