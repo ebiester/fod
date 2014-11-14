@@ -1,5 +1,5 @@
 {{#if vehicle.isReady}}
-  <span class="label label-success">Ready</span>
+  <button class="btn btn-primary btn-lg" {{action 'click'}}>Return to Avis</button>
 {{else}}
-  {{#link-to 'checklist' vehicle class='label label-warning'}}Not Ready{{/link-to}}
+  {{#link-to 'checklist' vehicle class='btn btn-lg btn-warning'}}Not Ready{{/link-to}}
 {{/if}}
