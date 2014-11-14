@@ -1,3 +1,13 @@
 <div class="container big-text">
   {{outlet}}
 </div>
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="container">
+  {{#link-to 'index' class="btn btn-primary navbar-btn navbar-right"}}Start Over{{/link-to}}
+
+Select User: {{view Ember.Select content=users
+  optionLabelPath="content.name"
+  optionValuePath="content.id"
+  selection=currentUser}}
+     </div>
+</nav>
