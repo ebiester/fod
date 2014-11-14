@@ -11,7 +11,7 @@ var Vehicle = DS.Model.extend({
   checklist: DS.belongsTo('Checklist', {async: true}),
 
   current_fleet: function() {
-    return this.get("isReady") ? "Avis" : "Zipcar"
+    return this.get("isReady") ? "Zipcar" : "Avis"
   }.property('isReady')
 });
 
