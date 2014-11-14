@@ -11,7 +11,7 @@ var Vehicle = DS.Model.extend({
   checklist: DS.belongsTo('Checklist', {async: true}),
 
   current_fleet: function() {
-    return this.get("isReady") ? "Zipcar" : "Avis"
+    return this.get("isReady") ? "Zipcar" : "Avis";
   }.property('isReady')
 });
 
@@ -35,6 +35,15 @@ Vehicle.reopenClass({
       color: 'Silver',
       isReady: false,
       checklist: 2},
+      {id: 3,
+      vin: '5NPDH4AE7EH522857',
+      license: 'GRB4255',
+      mvaId: '66889094',
+      make: 'Honda',
+      vehicle_model: 'Fit',
+      color: 'Gray',
+      isReady: false,
+      checklist: 3}
    ]
  });
 

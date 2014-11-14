@@ -33,7 +33,9 @@ Checklist.reopenClass({
   {id: 1,
    vehicle: 1},
   {id: 2,
-   vehicle: 2}
+   vehicle: 2},
+  {id: 3,
+   vehicle: 3}
   ]
 });
 
