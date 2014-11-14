@@ -5,9 +5,10 @@ var Vehicle = DS.Model.extend({
   license: DS.attr(),
   mvaId: DS.attr(),
   make: DS.attr(),
-  model: DS.attr(),
+  vehicle_model: DS.attr(),
   color: DS.attr(),
-  isReady: DS.attr('boolean')
+  isReady: DS.attr('boolean'),
+  checklist: DS.belongsTo('Checklist')
 });
 
 Vehicle.reopenClass({
@@ -17,17 +18,19 @@ Vehicle.reopenClass({
       license: '117GXT',
       mvaId: '66889093',
       make: 'Hyundai',
-      model: 'Elantra',
+      vehicle_model: 'Elantra',
       color: 'Yellow',
-      isReady: true},
+      isReady: true,
+      checklist: 1},
      {id: 2,
       vin: '5NPDH4AE7EH522857',
       license: '117GXH',
       mvaId: '66889094',
       make: 'Toyota',
-      model: 'Carolla',
+      vehicle_model: 'Carolla',
       color: 'Silver',
-      isReady: false},
+      isReady: false,
+      checklist: 2},
    ]
  });
 
