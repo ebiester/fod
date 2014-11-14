@@ -5,3 +5,7 @@ html, body {
 .big-text {
     font-size: 1.75em;
 }
+
+body > div > .container {
+  margin-top: 40px;
+}

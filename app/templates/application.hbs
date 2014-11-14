@@ -5,9 +5,11 @@
     <div class="container">
   {{#link-to 'index' class="btn btn-primary navbar-btn navbar-right"}}Start Over{{/link-to}}
 
+  <p class="navbar-text">
 Select User: {{view Ember.Select content=users
   optionLabelPath="content.name"
   optionValuePath="content.id"
   selection=currentUser}}
+  </p>
      </div>
 </nav>
