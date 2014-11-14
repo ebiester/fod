@@ -1,5 +1,5 @@
-<label>Ready?</label> {{#if vehicle.isReady}}
-  Ready
+{{#if vehicle.isReady}}
+  <span class="label label-success">Ready</span>
 {{else}}
-  {{#link-to 'checklist' vehicle}}Not Ready{{/link-to}}
+  {{#link-to 'checklist' vehicle class='label label-warning'}}Not Ready{{/link-to}}
 {{/if}}

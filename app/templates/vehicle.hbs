@@ -1,11 +1,11 @@
 
 {{outlet}}
-
-<label>VIN</label> {{vin}}
-<br>
-<label>License</label> {{license}}
-<br>
-<label>MVA ID</label> {{mvaId}}
-<br>
+<form class="form-horizontal">
+{{vehicle-element title="VIN" elem=vin}}
+{{vehicle-element title="License" elem=license}}
+{{vehicle-element title="MVA" elem=mvaId}}
+{{vehicle-element title="Make" elem=make}}
+{{vehicle-element title="Model" elem=vehicle_model}}
+{{vehicle-element title="Color" elem=color}}
 {{ready-indicator vehicle=model}}
-
+</form>
