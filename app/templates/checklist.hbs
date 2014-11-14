@@ -1,21 +1,24 @@
 {{back-navigation}}
 <h2 id='title'>Readiness Checklist</h2>
 <h4>These tasks must be completed before the car is ready for its next Zipcar
-trip. Please check off all items as they are completed. Thanks!</h4>
-<ul class="list-unstyled">
-<li>{{input type="checkbox"
-            checked=checklist.damage_checked}} Damage check</li>
-<li>{{input type="checkbox"
-            checked=checklist.cleaned}} Cleaned</li>
-<li>{{input type="checkbox"
-            checked=checklist.gas_checked}} Full gas</li>
-<li>{{input type="checkbox"
-            checked=checklist.upkitted}} Upkitted</li>
-            <li>{{input type="checkbox"
-            checked=checklist.parked_on_the_line}} Parked On The Line</li>
+  trip. Please check off all items as they are completed. Thanks!</h4>
 
-</ul>
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item">{{input type="checkbox" checked=checklist.damage_checked}} Damage check</li>
+      <li class="list-group-item">{{input type="checkbox" checked=checklist.cleaned}} Cleaned</li>
+      <li class="list-group-item">{{input type="checkbox" checked=checklist.gas_checked}} Full gas</li>
+      <li class="list-group-item">{{input type="checkbox" checked=checklist.upkitted}} Upkitted</li>
+      <li class="list-group-item">{{input type="checkbox" checked=checklist.parked_on_the_line}} Parked On The Line</li> 
+    </ul>
+  </div>
+</div>
 
+<div class="row">
+  <div class="col-md-12">
 <button {{bind-attr disabled=checklist.notReadyToToggle}} class="btn btn-lg btn-primary btn-block" {{action sendToZipcar}}>Send Vehicle to Zipcar Fleet</button>
-{{outlet}}
+  </div>
+</div>
 
+  {{outlet}}
