@@ -1,5 +1,5 @@
 {{#if vehicle.isReady}}
   <button class="btn btn-primary btn-block btn-lg" {{action 'click'}}>Send Vehicle to Avis Fleet</button>
 {{else}}
-  {{#link-to 'checklist' vehicle class='btn btn-lg btn-block btn-warning'}}Not Ready{{/link-to}}
+  {{#link-to 'checklist' vehicle class='btn btn-lg btn-block btn-warning'}}Car Not Ready - Get Car Ready for Zipcar{{/link-to}}
 {{/if}}
