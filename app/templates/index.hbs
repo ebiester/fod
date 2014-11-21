@@ -1,22 +1,46 @@
 {{back-navigation currentUser=currentUser}}
 <h2 id='title'>Search By License</h2>
 <form role="form" {{action "searchLicense" on="submit"}}>
+  <p>Scan a vehicle identifier</p>
 <div class="row">
   <div class="col-sm-12">
-    {{license-plate license=license}}
+    {{scan-image text="Scan License Plate" type="license" action="imageScanned"}}
   </div>
 </div>
-<div class="row">
-  <div class="col-md-8">
-    {{input type="file" value=filename accept="image/*;capture=camera"}}
+<div class="row voffset">
+  <div class="col-sm-12">
+    {{scan-image text="Scan MVA ID" type="mva" action="imageScanned"}}
   </div>
 </div>
 
 <div class="row">
   <div class="col-sm-12">
-    <h2>Scan MVA ID</h2>
-    {{scan-image action="imageScanned"}}
-    {{input value=mvaId}}
+    &nbsp;
+  </div>
+</div>
+
+<div style="height: 1px; background-color: gray; text-align: center">
+  <span style="color: gray; background-color: white; position: relative; top: -0.7em;">
+    &nbsp;or&nbsp;
+  </span>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    &nbsp;
+  </div>
+</div>
+
+<div class="row voffset">
+  <div class="col-sm-12">
+    Enter identifier manually
+    {{input value=scannedText class="form-control input-lg input-block" }}
+    {{view Ember.Select content=inputTypes
+        optionLabelPath="content.text"
+        optionValuePath="content.id"
+        selection=selectedType
+        class="form-control input-lg input-block voffset"
+        }}
   </div>
 </div>
 
@@ -31,6 +55,5 @@
     <input type="submit" class="btn btn-primary btn-lg btn-block" value="Find Vehicle"></input>
   </div>
 </div>
-
 
 </form>

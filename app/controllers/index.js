@@ -5,7 +5,15 @@ export default Ember.ObjectController.extend({
   needs: ['session'],
   currentUser: Ember.computed.alias('controllers.session.currentUser'),
   users: User.FIXTURES,
+  mvaId: null,
   mvaFile: null,
+  scannedText: null,
+  
+  inputTypes: [
+    { id: 1, text: 'License Plate', modelProperty: 'license' },
+    { id: 2, text: 'MVA ID', modelProperty: 'mvaId' },
+  ],
+  selectedType: null,
 
   actions: {
     searchLicense: function() {
@@ -15,32 +23,32 @@ export default Ember.ObjectController.extend({
           vehicleQuery.get('firstObject'));
       });
     },
-    imageScanned: function(file) {
-      this.set('mvaFile', file);
+    imageScanned: function(file, type) {
+      if (type === 'license') {
+        this.set('selectedType', this.get('inputTypes')[0]);
+        // hack
+        this.set('filename', 'fakefakefake');
+      } else if (type === 'mva') {
+        this.set('mvaFile', file);
+        this.set('selectedType', this.get('inputTypes')[1]);
+      }
     }
   },
 
   findVehicle: function() {
-    var license = this.get('license');
-    var mvaId = this.get('mvaId');
+    var identifier = this.get('scannedText');
+    var property = this.get('selectedType.modelProperty');
     var params = {};
-    if (!Ember.isEmpty(license)) {
-      params.license = license;
-    } else if (!Ember.isEmpty(mvaId)) {
-      params.mvaId = mvaId;
-    }
-
-    console.log(params);
+    params[property] = identifier;
     return this.store.find('vehicle', params);
   },
 
   fileUpdated: function() {
     if (!Ember.isNone(this.get('filename'))) {
-      this.set('license', 'GRB4255');
+      this.set('scannedText', 'GRB4255');
     }
   }.observes('filename'),
 
-  mvaId: null,
   mvaFileUpdated: function() {
     var file = this.get('mvaFile');
     console.log(file);
@@ -96,7 +104,7 @@ export default Ember.ObjectController.extend({
               }
           }
           console.log('RESULT: ', resultArray.join("\n"));
-          self.set('mvaId', e.data.result[0].split(':')[1].trim()); // lol
+          self.set('scannedText', e.data.result[0].split(':')[1].trim()); // lol
       }else{
           if(resultArray.length === 0 && self.get('workerCount') === 0) {
             console.log("Decoding failed.");
