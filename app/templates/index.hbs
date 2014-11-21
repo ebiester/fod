@@ -34,7 +34,7 @@
   <div class="col-sm-12">
     Enter identifier manually
     {{input value=scannedText class="form-control input-lg input-block" }}
-    {{view Ember.Select content=inputTypes
+    {{view "select" content=inputTypes
         optionLabelPath="content.text"
         optionValuePath="content.id"
         selection=selectedType

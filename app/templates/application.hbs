@@ -6,7 +6,7 @@
 
     <form class="navbar-form navbar-left">
       <div class="form-group">
-    {{view Ember.Select content=users
+    {{view "select" content=users
     optionLabelPath="content.name"
     optionValuePath="content.id"
     selection=currentUser
