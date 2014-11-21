@@ -14,7 +14,7 @@ module.exports = function(environment) {
     },
 
     contentSecurityPolicy: {
-      'img-src': "'data'"
+      'img-src': "'self' data:"
     },
 
     APP: {

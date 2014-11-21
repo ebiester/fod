@@ -8,7 +8,7 @@ var Vehicle = DS.Model.extend({
   vehicle_model: DS.attr(),
   color: DS.attr(),
   isReady: DS.attr('boolean'),
-  checklist: DS.belongsTo('Checklist', {async: true}),
+  checklist: DS.belongsTo('Checklist'),
   filename: DS.attr(),
 
   current_fleet: function() {

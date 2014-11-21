@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 var Checklist = DS.Model.extend({
-  vehicle: DS.belongsTo('Vehicle', {async: true}),
+  vehicle: DS.belongsTo('Vehicle'),
   damage_checked: DS.attr('boolean'),
   damage_checked_by: DS.attr(),
   cleaned: DS.attr('boolean'),

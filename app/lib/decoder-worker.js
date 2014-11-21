@@ -22,7 +22,7 @@ var DecoderWorkerWrapper = Ember.Object.extend({
     this._updateCanvas(file);
     this.decoderCommand('normal');
     var self = this;
-    return new Promise(function(resolve, reject) {
+    return new Ember.RSVP.Promise(function(resolve, reject) {
       self.set('promise', { resolve: resolve, reject: reject });
     });
   },
