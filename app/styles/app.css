@@ -13,3 +13,9 @@ body > div > .container {
 .badge {
     font-size: 1.1em;
 }
+
+.hidden-input {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}

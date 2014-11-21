@@ -1,9 +1,13 @@
-// app/adapters/application.js
-import Ember from "ember";
 import DS from "ember-data";
 
 export default DS.FixtureAdapter.extend({
-  queryFixtures: function(fixture, query, type) {
-    return fixture.filterBy('license', query.license);
+  queryFixtures: function(fixture, query) {
+    var name, value;
+    for (var prop in query) {
+      name = prop;
+      value = query[name];
+    }
+
+    return fixture.filterBy(name, value);
   }
 });

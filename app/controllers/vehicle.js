@@ -6,7 +6,7 @@ export default Ember.ObjectController.extend({
 
   actions: {
     sendToAvis: function() {
-      console.log("sending to avis")
+      console.log("sending to avis");
       this.set('isReady', false);
     }
   }
