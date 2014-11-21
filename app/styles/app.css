@@ -23,3 +23,16 @@ body > div > .container {
   width: 0;
   height: 0;
 }
+
+.horizontal-line {
+  height: 1px;
+  background-color: gray;
+  text-align: center;
+}
+
+.horizontal-line > span {
+  color: gray;
+  background-color: white;
+  position: relative;
+  top: -0.7em;
+}
