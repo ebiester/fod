@@ -15,13 +15,14 @@ export default Ember.ObjectController.extend({
   selectedType: null,
 
   actions: {
-    searchLicense: function() {
+    findVehicle: function() {
       var controller = this;
-      this.findVehicle().then(function(vehicleQuery) {
+      this.queryForVehicle().then(function(vehicleQuery) {
         controller.transitionToRoute('vehicle',
           vehicleQuery.get('firstObject'));
       });
     },
+
     imageScanned: function(file, type) {
       if (type === 'license') {
         this.set('selectedType', this.get('inputTypes')[0]);
@@ -36,7 +37,7 @@ export default Ember.ObjectController.extend({
     }
   },
 
-  findVehicle: function() {
+  queryForVehicle: function() {
     var identifier = this.get('scannedText');
     var property = this.get('selectedType.modelProperty');
     var params = {};
