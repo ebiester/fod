@@ -11,8 +11,8 @@ export default Ember.ObjectController.extend({
     },
 
     sendToZipcar: function() {
-      this.set('isReady', true);
-      this.transitionToRoute('vehicle', this.model);
+      this.set('vehicle.isReady', true);
+      this.transitionToRoute('vehicle', this.get('vehicle'));
     }
   }
 });
