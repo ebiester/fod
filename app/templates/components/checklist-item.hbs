@@ -1,0 +1,6 @@
+<label class="checkbox-wrapper">
+{{input type="checkbox" checked=item.complete}}{{item.summary}}
+</label>
+{{#if isComplete}}
+<span class="badge ">{{item.completedBy.name}}</span>
+{{/if}}
