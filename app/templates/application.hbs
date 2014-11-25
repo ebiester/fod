@@ -1,18 +1,32 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <img src="/images/Avis_Budget.jpg" height="32"/>
+        <img src="/images/Zipcar_logo.jpg" height="32"/>
+      </a>
+
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        {{fa-icon "bars"}}
+      </button>
+    </div>
+
+    <div id="navbar" class="navbar-collapse collapse">
+      <form class="navbar-form navbar-right">
+        <div class="form-group">
+          Current user:
+          {{view "select" content=users
+          optionLabelPath="content.name"
+          optionValuePath="content.id"
+          selection=currentUser
+          class="form-control"}}
+        </div>
+        <button class="btn btn-default navbar-btn" {{action 'startOver'}}>Start Over</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
 <div class="container big-text">
   {{outlet}}
 </div>
-<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <div class="container">
-
-    <form class="navbar-form navbar-left">
-      <div class="form-group">
-    {{view "select" content=users
-    optionLabelPath="content.name"
-    optionValuePath="content.id"
-    selection=currentUser
-    class="form-control"}}
-  </div>
-  </form>
-  {{#link-to 'index' class="btn btn-primary navbar-btn navbar-right"}}Start Over{{/link-to}}
-  </div>
-</nav>
