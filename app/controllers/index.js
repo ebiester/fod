@@ -1,9 +1,9 @@
 import Ember from 'ember';
 import User from 'fod/models/user';
+import UserAwareController from 'fod/mixins/user-aware-controller';
 
-export default Ember.ObjectController.extend({
-  needs: ['session', 'barcode-scanner'],
-  currentUser: Ember.computed.alias('controllers.session.currentUser'),
+export default Ember.ObjectController.extend(UserAwareController, {
+  needs: ['barcode-scanner'],
   scanner: Ember.computed.alias('controllers.barcode-scanner'),
   users: User.FIXTURES,
   scannedText: null,

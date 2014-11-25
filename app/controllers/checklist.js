@@ -1,9 +1,7 @@
 import Ember from 'ember';
+import UserAwareController from 'fod/mixins/user-aware-controller';
 
-export default Ember.ObjectController.extend({
-  needs: ['session'],
-  currentUser: Ember.computed.alias('controllers.session.currentUser'),
-
+export default Ember.ObjectController.extend(UserAwareController, {
   actions: {
     checklistItemToggled: function(item) {
       var user = item.get('complete') ? this.get('currentUser') : null;
