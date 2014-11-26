@@ -4,12 +4,17 @@ import {
 } from 'ember-qunit';
 
 moduleFor('controller:vehicle', 'VehicleController', {
-  // Specify the other units that are required for this test.
-  needs: ['controller:session']
+  needs: ['controller:session', 'model:vehicle']
 });
 
-// Replace this with your real tests.
-test('it exists', function() {
+test('sendToAvis action sets vehicle readiness to false', function() {
+  expect(2);
+
   var controller = this.subject();
-  ok(controller);
+  controller.set('model', { isReady: true });
+  equal(controller.get('isReady'), true);
+
+  controller.send('sendToAvis');
+
+  equal(controller.get('isReady'), false);
 });
