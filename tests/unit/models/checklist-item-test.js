@@ -5,7 +5,7 @@ import {
 
 moduleForModel('checklist-item', 'ChecklistItem', {
   // Specify the other units that are required for this test.
-  needs: []
+  needs: ['model:checklist', 'model:vehicle']
 });
 
 test('it exists', function() {
