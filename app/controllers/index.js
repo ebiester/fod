@@ -27,7 +27,7 @@ export default Ember.ObjectController.extend(UserAwareController, {
       if (type === 'license') {
         this.set('selectedType', this.get('inputTypes')[0]);
         // hack
-        this.set('filename', 'fakefakefake');
+        this.set('scannedText', 'GRB4255');
       } else if (type === 'mva') {
         this.get('scanner').processImage(file).then(function(text) {
           this.set('scannedText', text);
@@ -44,10 +44,4 @@ export default Ember.ObjectController.extend(UserAwareController, {
     params[property] = identifier;
     return this.store.find('vehicle', params);
   },
-
-  fileUpdated: function() {
-    if (!Ember.isNone(this.get('filename'))) {
-      this.set('scannedText', 'GRB4255');
-    }
-  }.observes('filename'),
 });
