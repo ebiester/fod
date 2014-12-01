@@ -9,8 +9,12 @@ export default Ember.ObjectController.extend(UserAwareController, {
     },
 
     sendToZipcar: function() {
-      this.set('vehicle.isReady', true);
-      this.transitionToRoute('vehicle', this.get('vehicle'));
+      var controller = this;
+      this.get('vehicle').then(function(vehicle) {
+        vehicle.set('isReady', true);
+        vehicle.save();
+        controller.transitionToRoute('vehicle', vehicle);
+      });
     }
   }
 });

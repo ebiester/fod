@@ -2,7 +2,7 @@ import Ember from 'ember';
 import DS from 'ember-data';
 
 var Checklist = DS.Model.extend({
-  vehicle: DS.belongsTo('vehicle'),
+  vehicle: DS.belongsTo('vehicle', { async: true }),
   checklistItems: DS.hasMany('checklist-item'),
 
   notReady: function() {

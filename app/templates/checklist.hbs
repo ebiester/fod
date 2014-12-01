@@ -12,7 +12,7 @@ trip. Please check off all items as they are completed. Thanks!</h4>
 </div>
 <div class="row">
   <div class="col-md-12">
-    <button {{bind-attr disabled=notReady}} class="btn btn-lg btn-primary btn-block" {{action sendToZipcar}}>Send Vehicle to Zipcar Fleet</button>
+    <button {{bind-attr disabled=notReady}} class="btn btn-lg btn-primary btn-block send-to-zipcar" {{action 'sendToZipcar'}}>Send Vehicle to Zipcar Fleet</button>
   </div>
 </div>
 {{outlet}}

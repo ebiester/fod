@@ -32,8 +32,9 @@ test('has a list of checklist items', function() {
 test('not ready when any item is incomplete', function() {
   var item1, item2;
   var store = this.store();
-  var checklist = this.subject();
+  var checklist;
   Ember.run(function() {
+    checklist = store.createRecord('checklist', {});
     item1 = store.createRecord('checklist-item', { checklist: checklist, complete: true });
     item2 = store.createRecord('checklist-item', { checklist: checklist, complete: false });
   });

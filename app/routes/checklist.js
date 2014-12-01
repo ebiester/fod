@@ -3,8 +3,8 @@ import ChecklistItem from 'fod/models/checklist-item';
 
 export default Ember.Route.extend({
   model: function(params) {
+    var store = this.store;
     return this._super(params).then(function(checklist) {
-      var store = this.store;
       if (checklist.get('checklistItems.length') === 0) {
         ChecklistItem.FIXTURES.copy().forEach(function(item) {
           item.checklist = checklist;
@@ -13,6 +13,6 @@ export default Ember.Route.extend({
       }
 
       return checklist;
-    }.bind(this));
+    });
   }
 });
