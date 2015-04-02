@@ -9,7 +9,10 @@
     </div>
     {{#each reservation in reservations}}
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-1">
+        <h4>30 Min.</h4>
+      </div>
+      <div class="col-md-11">
         <div class="well reservation">
           <h4>{{reservation.name}}</h4>
           Pick up: {{reservation.formattedStartTime}}
