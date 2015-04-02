@@ -1,0 +1,39 @@
+
+<h1>W 76 St btwn Broadway &amp; Amsterdam Ave</h1>
+<div class="row">
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Reservations</h3>
+      </div>
+    </div>
+    {{#each reservation in reservations}}
+    <div class="row">
+      <div class="col-md-12">
+        <div class="well reservation">
+          <h4>{{reservation.name}}</h4>
+          Pick up: {{reservation.formattedStartTime}}
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Vehicles</h3>
+      </div>
+      {{#each vehicle in vehicles}}
+      <div class="row">
+        <div class="col-md-12">
+          <div class="well license">
+            <h4>{{vehicle.make}} {{vehicle.model}} "{{vehicle.description}}"</h4>
+            {{vehicle.color}}<br/>
+            {{vehicle.license}}
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
