@@ -5,9 +5,10 @@ var Checklist = DS.Model.extend({
   vehicle: DS.belongsTo('vehicle', { async: true }),
   checklistItems: DS.hasMany('checklist-item'),
 
-  notReady: function() {
-    return !Ember.isEmpty(this.get('checklistItems').filterBy('complete', false));
-  }.property('checklistItems.@each.complete')
+  ready: function() {
+    return Ember.isEmpty(this.get('checklistItems').filterBy('complete', false));
+  }.property('checklistItems.@each.complete'),
+  notReady: Ember.computed.not('ready')
 });
 
 Checklist.reopenClass({

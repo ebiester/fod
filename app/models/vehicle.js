@@ -5,16 +5,20 @@ var Vehicle = DS.Model.extend({
   license: DS.attr(),
   mvaId: DS.attr(),
   make: DS.attr(),
-  model: DS.attr(),
+  vehicleModel: DS.attr(),
   color: DS.attr(),
   description: DS.attr(),
   isReady: DS.attr('boolean'),
   checklist: DS.belongsTo('checklist', { async: true }),
   filename: DS.attr(),
 
+  online: DS.attr(),
   currentFleet: function() {
     return this.get("isReady") ? "Zipcar" : "Avis";
-  }.property('isReady')
+  }.property('isReady'),
+
+  toggled: Ember.computed.equal('currentFleet', 'Zipcar'),
+  serviced: Ember.computed.reads('checklist.ready')
 });
 
 Vehicle.reopenClass({
@@ -24,7 +28,7 @@ Vehicle.reopenClass({
       license: '117GXT',
       mvaId: '66889093',
       make: 'Hyundai',
-      model: 'Elantra',
+      vehicleModel: 'Elantra',
       color: 'Yellow',
       description: 'Mongoose',
       isReady: true,
@@ -35,7 +39,7 @@ Vehicle.reopenClass({
 //      mvaId: '66889094',
       mvaId: '70119744',
       make: 'Toyota',
-      model: 'Carolla',
+      vehicleModel: 'Carolla',
       color: 'Silver',
       description: 'Sanden',
       isReady: false,
@@ -45,7 +49,7 @@ Vehicle.reopenClass({
       license: 'GRB4255',
       mvaId: '66889094',
       make: 'Honda',
-      model: 'Fit',
+      vehicleModel: 'Fit',
       color: 'Gray',
       description: 'Sierra',
       isReady: false,

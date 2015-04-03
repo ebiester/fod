@@ -11,7 +11,9 @@ var Reservation = DS.Model.extend({
 
 Reservation.reopenClass({
   FIXTURES: [
-    { id: 1, name: 'Bell-Upp, Gailyn', startTime: '2015-04-01T13:30:00' }
+    { id: 1, name: 'Bell-Upp, Gailyn', startTime: '2015-04-01T13:30:00' },
+    { id: 2, name: 'Childs, Stuart', startTime: '2015-04-01T14:00:00' },
+    { id: 3, name: 'Dunn, Lucas', startTime: '2015-04-01T15:00:00' }
   ]
 });
 

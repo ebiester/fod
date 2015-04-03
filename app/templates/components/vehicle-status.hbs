@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="vehicle-status {{boxClass}}" {{action "editVehicle"}}>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="license">
+            <h4>{{vehicle.make}} {{vehicle.vehicleModel}} "{{vehicle.description}}"</h4>
+            {{vehicle.color}}<br/>
+            {{vehicle.license}}
+          </div>
+        </div>
+        <div class="col-md-2">
+          {{status-circle predicate=vehicle.online text="On-line"}}
+        </div>
+        <div class="col-md-2">
+          {{status-circle predicate=vehicle.toggled text="Toggled"}}
+        </div>
+        <div class="col-md-2">
+          {{status-circle predicate=vehicle.serviced text="Serviced"}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

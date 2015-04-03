@@ -4,22 +4,48 @@
   <div class="col-md-6">
     <div class="row">
       <div class="col-md-12">
-        <h3>Reservations</h3>
+        <h3>Upcoming Reservations</h3>
       </div>
     </div>
-    {{#each reservation in reservations}}
+          <div class="row">
+            <div class="col-md-1">
+              <h4>30 Min.</h4>
+            </div>
+            <div class="col-md-11">
+              {{#each reservation in reservationsNext30Min}}
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="well reservation">
+                    <h4>{{reservation.name}}</h4>
+                    Pick up: {{reservation.formattedStartTime}}
+                  </div>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
     <div class="row">
-      <div class="col-md-1">
-        <h4>30 Min.</h4>
-      </div>
-      <div class="col-md-11">
-        <div class="well reservation">
-          <h4>{{reservation.name}}</h4>
-          Pick up: {{reservation.formattedStartTime}}
-        </div>
+      <div class="col-md-12">
+        <hr class="thick-line"/>
       </div>
     </div>
-    {{/each}}
+          <div class="row">
+            <div class="col-md-1">
+              <h4>60 Min.</h4>
+            </div>
+            <div class="col-md-11">
+              {{#each reservation in reservationsNext60Min}}
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="well reservation">
+                    <h4>{{reservation.name}}</h4>
+                    Pick up: {{reservation.formattedStartTime}}
+                  </div>
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div>
   </div>
   <div class="col-md-6">
     <div class="row">
@@ -27,15 +53,7 @@
         <h3>Vehicles</h3>
       </div>
       {{#each vehicle in vehicles}}
-      <div class="row">
-        <div class="col-md-12">
-          <div class="well license">
-            <h4>{{vehicle.make}} {{vehicle.model}} "{{vehicle.description}}"</h4>
-            {{vehicle.color}}<br/>
-            {{vehicle.license}}
-          </div>
-        </div>
-      </div>
+        {{vehicle-status vehicle=vehicle action="editVehicle"}}
       {{/each}}
     </div>
   </div>

@@ -9,9 +9,15 @@
         <li class="list-group-item">{{vehicle-element title="License" elem=license}}</li>
         <li class="list-group-item">{{vehicle-element title="MVA" elem=mvaId}}</li>
         <li class="list-group-item">{{vehicle-element title="Make" elem=make}}</li>
-        <li class="list-group-item">{{vehicle-element title="Model" elem=vehicle_model}}</li>
+        <li class="list-group-item">{{vehicle-element title="Model" elem=vehicleModel}}</li>
         <li class="list-group-item">{{vehicle-element title="Color" elem=color}}</li>
         <li class="list-group-item list-group-item-info">{{vehicle-element title="Current Fleet" elem=currentFleet}}</li>
+        <li class="list-group-item">
+          <label class="control-label" for=elem>Vehicle on the line</label>
+          {{bs-switch name="vehicle-online"
+                      btnSize="small"
+                      status=model.online}}
+        </li>
         <li class="list-group-item">{{ready-indicator vehicle=model action="sendToAvis"}}</li>
       </ul>
     </div>
