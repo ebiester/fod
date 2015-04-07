@@ -4,15 +4,15 @@ trip. Please check off all items as they are completed. Thanks!</h4>
 <div class="row">
   <div class="col-md-12">
     <ul class="list-group">
-      {{#each checklistItems}}
-        {{checklist-item item=this action="checklistItemToggled"}}
+      {{#each item in model.checklistItems}}
+        {{checklist-item item=item action="checklistItemToggled"}}
       {{/each}}
     </ul>
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
-    <button {{bind-attr disabled=notReady}} class="btn btn-lg btn-primary btn-block send-to-zipcar" {{action 'sendToZipcar'}}>Send Vehicle to Zipcar Fleet</button>
+    <button {{bind-attr disabled=model.notReady}} class="btn btn-lg btn-primary btn-block send-to-zipcar" {{action 'sendToZipcar'}}>Send Vehicle to Zipcar Fleet</button>
   </div>
 </div>
 {{outlet}}

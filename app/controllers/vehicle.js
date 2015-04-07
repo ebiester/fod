@@ -4,7 +4,9 @@ import UserAwareController from 'fod/mixins/user-aware-controller';
 export default Ember.ObjectController.extend(UserAwareController, {
   actions: {
     sendToAvis: function() {
-      this.set('isReady', false);
+      var vehicle = this.get('model');
+      vehicle.set('fleet', 'Avis');
+      vehicle.save();
     }
   }
 });

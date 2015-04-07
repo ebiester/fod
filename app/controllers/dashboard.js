@@ -7,5 +7,9 @@ export default Ember.Controller.extend({
 
   reservationsNext60Min: function() {
     return this.get('allReservations').slice(2);
-  }.property('allReservations.[]')
+  }.property('allReservations.[]'),
+
+  sortedVehicles: function() {
+    return this.get('vehicles').sortBy('steps').reverse();
+  }.property('vehicles.@each.steps')
 });

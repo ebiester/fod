@@ -3,7 +3,7 @@ import DS from 'ember-data';
 
 var Checklist = DS.Model.extend({
   vehicle: DS.belongsTo('vehicle', { async: true }),
-  checklistItems: DS.hasMany('checklist-item'),
+  checklistItems: DS.hasMany('checklist-item', { async: true }),
 
   ready: function() {
     return Ember.isEmpty(this.get('checklistItems').filterBy('complete', false));
@@ -17,8 +17,8 @@ Checklist.reopenClass({
    vehicle: 1},
   {id: 2,
    vehicle: 2},
-  {id: 3,
-   vehicle: 3}
+  // {id: 3,
+  //  vehicle: 3}
   ]
 });
 

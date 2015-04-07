@@ -1,5 +1,5 @@
 
-<h1>W 76 St btwn Broadway &amp; Amsterdam Ave</h1>
+<h1>{{location.description}}</h1>
 <div class="row">
   <div class="col-md-6">
     <div class="row">
@@ -15,20 +15,26 @@
               {{#each reservation in reservationsNext30Min}}
               <div class="row">
                 <div class="col-md-12">
-                  <div class="well reservation">
-                    <h4>{{reservation.name}}</h4>
+                  <!-- <div class="well reservation"> -->
+                  <!--   <h4>{{reservation.name}}</h4> -->
+                  <!--   Pick up: {{reservation.formattedStartTime}} -->
+                  <!-- </div> -->
+                  <blockquote>
+                    <address>
+                      <strong>{{reservation.name}}</strong><br/>
                     Pick up: {{reservation.formattedStartTime}}
-                  </div>
+                    </address>
+                  </blockquote>
                 </div>
               </div>
               {{/each}}
             </div>
           </div>
-    <div class="row">
-      <div class="col-md-12">
-        <hr class="thick-line"/>
-      </div>
-    </div>
+    <!-- <div class="row"> -->
+    <!--   <div class="col-md-12"> -->
+    <!--     <hr class="thick-line"/> -->
+    <!--   </div> -->
+    <!-- </div> -->
           <div class="row">
             <div class="col-md-1">
               <h4>60 Min.</h4>
@@ -37,10 +43,18 @@
               {{#each reservation in reservationsNext60Min}}
               <div class="row">
                 <div class="col-md-12">
+                  <!--
                   <div class="well reservation">
                     <h4>{{reservation.name}}</h4>
                     Pick up: {{reservation.formattedStartTime}}
                   </div>
+                  -->
+                  <blockquote>
+                    <address>
+                      <strong>{{reservation.name}}</strong><br/>
+                    Pick up: {{reservation.formattedStartTime}}
+                    </address>
+                  </blockquote>
                 </div>
               </div>
               {{/each}}
@@ -52,7 +66,7 @@
       <div class="col-md-12">
         <h3>Vehicles</h3>
       </div>
-      {{#each vehicle in vehicles}}
+      {{#each vehicle in sortedVehicles}}
         {{vehicle-status vehicle=vehicle action="editVehicle"}}
       {{/each}}
     </div>

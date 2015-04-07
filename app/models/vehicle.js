@@ -5,20 +5,37 @@ var Vehicle = DS.Model.extend({
   license: DS.attr(),
   mvaId: DS.attr(),
   make: DS.attr(),
-  vehicleModel: DS.attr(),
+  model: DS.attr(),
   color: DS.attr(),
   description: DS.attr(),
-  isReady: DS.attr('boolean'),
-  checklist: DS.belongsTo('checklist', { async: true }),
+  fleet: DS.attr(),
   filename: DS.attr(),
+
+  location: DS.belongsTo('location'),
+  checklist: DS.belongsTo('checklist', { async: true }),
 
   online: DS.attr(),
   currentFleet: function() {
-    return this.get("isReady") ? "Zipcar" : "Avis";
-  }.property('isReady'),
+    // return this.get("isReady") ? "Zipcar" : "Avis";
+    return this.get('fleet');
+  }.property('fleet'),
 
   toggled: Ember.computed.equal('currentFleet', 'Zipcar'),
-  serviced: Ember.computed.reads('checklist.ready')
+  serviced: Ember.computed.reads('checklist.ready'),
+
+  isReady: function() {
+    return this.get('online') && this.get('toggled') && this.get('serviced');
+  }.property('online', 'toggled', 'serviced'),
+  steps: function() {
+    var props = [this.get('online'), this.get('toggled'), this.get('serviced')];
+    return props.filter(function(e) { return e; }).length;
+  }.property('online', 'toggled', 'serviced'),
+
+  dirtied: function() {
+    if (this.get('isDirty')) {
+      this.save();
+    }
+  }.observes('online')
 });
 
 Vehicle.reopenClass({

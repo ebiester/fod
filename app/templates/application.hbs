@@ -14,12 +14,14 @@
     <div id="navbar" class="navbar-collapse collapse">
       <form class="navbar-form navbar-right">
         <div class="form-group">
+          <!--
           Current user:
           {{view "select" content=users
           optionLabelPath="content.name"
           optionValuePath="content.id"
           selection=currentUser
           class="form-control"}}
+          -->
         </div>
         <button class="btn btn-default navbar-btn" {{action 'dashboard'}}>Dashboard</button>
       </form>

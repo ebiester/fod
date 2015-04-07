@@ -3,6 +3,7 @@ import DS from 'ember-data';
 var Reservation = DS.Model.extend({
   name: DS.attr(),
   startTime: DS.attr('date'),
+  location: DS.belongsTo('location'),
 
   formattedStartTime: function() {
     return moment(this.get('startTime')).format('h:mm A');

@@ -5,13 +5,13 @@
   <div class="row">
     <div class="col-md-8">
       <ul class="list-group">
-        <li class="list-group-item">{{vehicle-element title="VIN" elem=vin}}</li>
-        <li class="list-group-item">{{vehicle-element title="License" elem=license}}</li>
-        <li class="list-group-item">{{vehicle-element title="MVA" elem=mvaId}}</li>
-        <li class="list-group-item">{{vehicle-element title="Make" elem=make}}</li>
-        <li class="list-group-item">{{vehicle-element title="Model" elem=vehicleModel}}</li>
-        <li class="list-group-item">{{vehicle-element title="Color" elem=color}}</li>
-        <li class="list-group-item list-group-item-info">{{vehicle-element title="Current Fleet" elem=currentFleet}}</li>
+        <li class="list-group-item">{{vehicle-element title="VIN" elem=model.vin}}</li>
+        <li class="list-group-item">{{vehicle-element title="License" elem=model.license}}</li>
+        <li class="list-group-item">{{vehicle-element title="MVA" elem=model.mvaId}}</li>
+        <li class="list-group-item">{{vehicle-element title="Make" elem=model.make}}</li>
+        <li class="list-group-item">{{vehicle-element title="Model" elem=model.model}}</li>
+        <li class="list-group-item">{{vehicle-element title="Color" elem=model.color}}</li>
+        <li class="list-group-item list-group-item-info">{{vehicle-element title="Current Fleet" elem=model.currentFleet}}</li>
         <li class="list-group-item">
           <label class="control-label" for=elem>Vehicle on the line</label>
           {{bs-switch name="vehicle-online"
